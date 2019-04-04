@@ -14,6 +14,7 @@ public class ExchangeValue {
 	private String from;
 	private String to;
 	private BigDecimal conversionMultiple;
+	private int port;
 
 	public ExchangeValue() {
 
@@ -89,10 +90,24 @@ public class ExchangeValue {
 		this.conversionMultiple = conversionMultiple;
 	}
 
+	/**
+	 * @return the port
+	 */
+	public int getPort() {
+		return port;
+	}
+
+	/**
+	 * @param port the port to set
+	 */
+	public void setPort(int port) {
+		this.port = port;
+	}
+
 	@Override
 	public String toString() {
-		return String.format("ExchangeValue [id=%s, from=%s, to=%s, conversionMultiple=%s]", id, from, to,
-				conversionMultiple);
+		return String.format("ExchangeValue [id=%s, from=%s, to=%s, conversionMultiple=%s, port=%s]", id, from, to,
+				conversionMultiple, port);
 	}
 
 }
