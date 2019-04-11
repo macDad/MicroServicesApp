@@ -27,3 +27,4 @@ currency-exchange-service/.mvn/
 currency-conversion-service/.mvn/
 netflix-eureka-naming-server/.mvn/wrapper/maven-wrapper.jar
 netflix-eureka-naming-server/.mvn/
+netflix-zuul-api-gateway-server/.mvn/
