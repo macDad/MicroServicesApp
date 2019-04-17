@@ -1,6 +1,13 @@
 # MicroServicesApp
 
 
+## Overview
+* [Installing Tools](#installing-tools)
+* [Ports](#Ports)
+* [Special steps](#Special-steps)
+  - [Step 39](#Step-39)
+
+
 ## Versions
 - 2.2.0 M1.RELEASE
 - Finchley.M8
@@ -43,30 +50,35 @@
 
 
 ## Installing Tools
-Eclipse & Embedded Maven
-PostMan
-Git Client - https://git-scm.com/
-Rabbit MQ - https://www.rabbitmq.com/download.html
-Installing Eclipse & Embedded Maven
-Installation Video : https://www.youtube.com/playlist?list=PLBBog2r6uMCSmMVTW_QmDLyASBvovyAO3
-GIT Repository For Installation : https://github.com/in28minutes/getting-started-in-5-steps
-PDF : https://github.com/in28minutes/SpringIn28Minutes/blob/master/InstallationGuide-JavaEclipseAndMaven_v2.pdf
-Installing Rabbit MQ
-Windows
-https://www.rabbitmq.com/install-windows.html
-https://www.rabbitmq.com/which-erlang.html
-http://www.erlang.org/downloads
-Video - https://www.youtube.com/watch?v=gKzKUmtOwR4
-Mac
-https://www.rabbitmq.com/install-homebrew.html
+- Eclipse & Embedded Maven
+- PostMan
+- Git Client - https://git-scm.com/
+- Rabbit MQ - https://www.rabbitmq.com/download.html
+
+
+### Installing Eclipse & Embedded Maven
+- Installation Video : https://www.youtube.com/playlist?list=PLBBog2r6uMCSmMVTW_QmDLyASBvovyAO3
+- GIT Repository For Installation : https://github.com/in28minutes/getting-started-in-5-steps
+- PDF : https://github.com/in28minutes/SpringIn28Minutes/blob/master/InstallationGuide-JavaEclipseAndMaven_v2.pdf
+
+### Installing Rabbit MQ
+
+#### Windows
+- https://www.rabbitmq.com/install-windows.html
+- https://www.rabbitmq.com/which-erlang.html
+- http://www.erlang.org/downloads
+- Video - https://www.youtube.com/watch?v=gKzKUmtOwR4
+
+#### Mac
+- https://www.rabbitmq.com/install-homebrew.html
 
 
 
 ## Special steps
-Updates to Step 39 - Running Zipkin on Windows
-In the next step, we set up our Zipkin Server by downloading a jar. 
+#### Updates to Step 39 - Running Zipkin on Windows
 
-Move to the next step if you are not on Windows!
+- In the next step, we set up our Zipkin Server by downloading a jar.
+- Move to the next step if you are not on Windows!
 
 ONLY FOR WINDOWS USERS
 
@@ -74,10 +86,10 @@ If you are on Windows, this is important for you:
 
 After you watch the next video, You can use the below commands to run Zipkin Server.
 
-set RABBIT_URI=amqp://localhost
-java -jar zipkin-server-2.7.0-exec.jar
+  - set RABBIT_URI=amqp://localhost
+  - java -jar zipkin-server-2.7.0-exec.jar
 
-  
+
 ### Diagrams
 
 - http://viz-js.com/
@@ -119,7 +131,7 @@ Database[shape=cylinder]
 LimitsService, CurrencyCalculationService, CurrencyExchangeService[shape=component]
 
   CurrencyCalculationService -> CurrencyExchangeService -> LimitsService;
-  
+
   CurrencyExchangeService->Database;
   LimitsService->Configuration;
 
@@ -138,17 +150,17 @@ LimitsService, CurrencyCalculationService, CurrencyExchangeService[shape=compone
   subgraph CurrencyCalculationService {
       {rank=same; CurrencyCalculationService,CCDEV,CCQA,CCSTAGE, CCPROD};
   }
- 
+
   subgraph CurrencyExchangeService {
       CurrencyExchangeService;
       {rank=same; CurrencyExchangeService,CEDEV,CEQA, CESTAGE, CEPROD};
   }
-  
+
   subgraph LimitsService {
       CurrencyExchangeService;
       {rank=same; LimitsService,LSDEV,LSQA, LSSTAGE, LSPROD};
   }
- 
+
 }
 
 
