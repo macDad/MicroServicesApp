@@ -5,7 +5,8 @@
 * [Installing Tools](#installing-tools)
 * [Ports](#Ports)
 * [Special steps](#Special-steps)
-  - [Step 39](#Step-39)
+  - [Updates to Step 39 ](#Updates-to-Step-39 )
+  - [Updates to Step 40](#Updates-to-Step-40)
 
 
 ## Versions
@@ -75,19 +76,50 @@
 
 
 ## Special steps
-#### Updates to Step 39 - Running Zipkin on Windows
+#### Updates to Step 39
+  ######  -    Running Zipkin on Windows
 
-- In the next step, we set up our Zipkin Server by downloading a jar.
-- Move to the next step if you are not on Windows!
+  - In the next step, we set up our Zipkin Server by downloading a jar.
+  - Move to the next step if you are not on Windows!
 
-ONLY FOR WINDOWS USERS
+  ONLY FOR WINDOWS USERS
 
-If you are on Windows, this is important for you:
+  If you are on Windows, this is important for you:
 
-After you watch the next video, You can use the below commands to run Zipkin Server.
+  After you watch the next video, You can use the below commands to run Zipkin Server.
 
-  - set RABBIT_URI=amqp://localhost
-  - java -jar zipkin-server-2.7.0-exec.jar
+      - set RABBIT_URI=amqp://localhost
+      - java -jar zipkin-server-2.7.0-exec.jar
+
+#### Updates to Step 40
+  ###### - Use spring-cloud-starter-zipkin and spring-rabbit
+  The dependencies are ever changing with Spring Cloud and Spring Boot.
+
+  If you are using Spring Boot Release >= 2.1.*, you would need to use spring-cloud-starter-zipkin and spring-rabbit instead of spring-cloud-sleuth-zipkin and spring-cloud-starter-bus-amqp.
+
+  You would need to make this change in THREE pom.xmls - in currency-conversion-service, currency-exchange-service and zuul-api-gateway projects
+
+  New Dependencies
+
+  		<dependency>
+  			<groupId>org.springframework.cloud</groupId>
+  			<artifactId>spring-cloud-starter-zipkin</artifactId>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.springframework.amqp</groupId>
+  			<artifactId>spring-rabbit</artifactId>
+  		</dependency>
+  OLD Dependencies to be Replaced
+
+  		<dependency>
+  			<groupId>org.springframework.cloud</groupId>
+  			<artifactId>spring-cloud-sleuth-zipkin</artifactId>
+  		</dependency>
+
+  		<dependency>
+  			<groupId>org.springframework.cloud</groupId>
+  			<artifactId>spring-cloud-starter-bus-amqp</artifactId>
+  		</dependency>
 
 
 ### Diagrams
