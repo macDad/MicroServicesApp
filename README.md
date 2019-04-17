@@ -60,6 +60,24 @@ Video - https://www.youtube.com/watch?v=gKzKUmtOwR4
 Mac
 https://www.rabbitmq.com/install-homebrew.html
 
+
+
+## Special steps
+Updates to Step 39 - Running Zipkin on Windows
+In the next step, we set up our Zipkin Server by downloading a jar. 
+
+Move to the next step if you are not on Windows!
+
+ONLY FOR WINDOWS USERS
+
+If you are on Windows, this is important for you:
+
+After you watch the next video, You can use the below commands to run Zipkin Server.
+
+set RABBIT_URI=amqp://localhost
+java -jar zipkin-server-2.7.0-exec.jar
+
+  
 ### Diagrams
 
 - http://viz-js.com/
